@@ -1,10 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from './model/counter';
+import * as intl from './model/intl';
 
 export const store = configureStore({
   reducer: {
-    // ss: counterReducer,
+    intl: intl.intlSlice.reducer,
   },
+  devTools: true,
 });
-
-export type RootState = ReturnType<typeof store.getState>;
