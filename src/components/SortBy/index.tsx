@@ -7,7 +7,7 @@ const SortBy = () => {
   const intl = useIntl();
   return (
     <div className="inline-block ">
-      <div className="border border-gray-300 rounded mb-1">
+      <div className="border border-gray-300 rounded">
         <div className="flex flex-col ">
           <p className=" bg-blue-400 text-white px-5 py-2 text-center">
             {intl.formatMessage({
