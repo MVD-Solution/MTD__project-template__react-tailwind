@@ -1,10 +1,14 @@
 import React from 'react';
 import { ReactComponent as ArrowDown } from './../../assets/resource/arrow/down-arrow.svg';
-import { TOPIC, listTopics, topicTable } from '../../constants/topic';
+import {
+  CATEGORY,
+  listCategory,
+  categoryTable,
+} from '../../constants/category';
 import { useIntl } from 'react-intl';
 
 const DropdownMenu = () => {
-  const [topic, setTopic] = React.useState<string>(TOPIC.ALL);
+  const [category, setCategory] = React.useState<string>(CATEGORY.ALL);
   const intl = useIntl();
   return (
     <div className="inline-block ">
@@ -18,22 +22,22 @@ const DropdownMenu = () => {
           </p>
           <button className="flex justify-center items-center gap-x-3 hover:bg-gray-500  py-2 px-5 group relative after:content-[''] after:absolute after:w-28 after:bg-red-500 after:h-10 after:top-5 after:left-0 after:bg-transparent">
             <span className=" text-gray-500 group-hover:text-white ">
-              {topicTable[topic]}
+              {categoryTable[category]}
             </span>
             <ArrowDown className="w-4 fill-gray-500 group-hover:fill-white" />
 
             <div className="absolute hidden group-hover:block w-48 top-12 left-0 border border-gray-300 bg-white rounded">
               <ul>
-                {listTopics.map((topic) => (
+                {listCategory.map((c) => (
                   <li
                     className="py-1.5 pl-2 flex gap-2  hover:bg-gray-500 hover:text-white"
                     onClick={() => {
-                      setTopic(topic.id);
+                      setCategory(c.id);
                     }}
-                    key={topic.id}
+                    key={c.id}
                   >
-                    {<topic.icon className="mr-2" />}
-                    <span className=" ">{topic.text}</span>
+                    {<c.icon className="mr-2" />}
+                    <span className=" ">{c.text}</span>
                   </li>
                 ))}
               </ul>
