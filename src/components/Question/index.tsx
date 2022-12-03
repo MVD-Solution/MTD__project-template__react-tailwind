@@ -9,8 +9,8 @@ import { categoryColor } from '../../constants/category';
 
 //highligh code and backend stuff
 
-const Component = ({ question, answer, difficulty, categoryID }: Question) => {
-  const [showAnswer, setShowAnswer] = React.useState<boolean>(true);
+const Component = ({ question, ...rest }: { question: Question }) => {
+  const [showAnswer, setShowAnswer] = React.useState<boolean>(false);
 
   return (
     <div className={`bg-white rounded-2xl py-10 px-10 relative mb-10`}>
@@ -24,7 +24,7 @@ const Component = ({ question, answer, difficulty, categoryID }: Question) => {
           },
         }}
       >
-        {question}
+        {question.question}
       </Markdown>
       <Button showAnswer={showAnswer} setShowAnswer={setShowAnswer} />
       {showAnswer && (
@@ -38,14 +38,16 @@ const Component = ({ question, answer, difficulty, categoryID }: Question) => {
             },
           }}
         >
-          {answer}
+          {question.answer}
         </Markdown>
       )}
       <span className="absolute top-0 -translate-x-2/4 left-1/2 border-[1px] px-3 rounded-2xl -translate-y-2/4 bg-white">
-        {difficulty}
+        {question.difficulty}
       </span>
       <span
-        className={`absolute top-0 right-0 w-0 h-0 border-t-[100px] border-t-solid ${categoryColor[categoryID]} border-l-[100px] border-l-solid border-l-transparent`}
+        className={`absolute top-0 right-0 w-0 h-0 border-t-[100px] border-t-solid ${
+          categoryColor[question.categoryID]
+        } border-l-[100px] border-l-solid border-l-transparent`}
       />
     </div>
   );

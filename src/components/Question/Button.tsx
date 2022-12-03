@@ -22,11 +22,11 @@ const Button = ({
       <span>
         {showAnswer
           ? intl.formatMessage({
-              id: 'question_button_show_answer',
+              id: 'question_button_hide_answer',
               defaultMessage: 'Error',
             })
           : intl.formatMessage({
-              id: 'question_button_hide_answer',
+              id: 'question_button_show_answer',
               defaultMessage: 'Error',
             })}
       </span>
