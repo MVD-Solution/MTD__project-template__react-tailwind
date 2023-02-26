@@ -1,13 +1,14 @@
-import en from "./en";
-import vi from "./vi";
+import en from './en';
+import vi from './vi';
+import { LANG_KEY } from './../constants/locale';
 
 const getMessages = (locale: string) => {
   switch (locale) {
-    case "en":
+    case LANG_KEY.EN:
       return {
         ...en,
       };
-    case "vi":
+    case LANG_KEY.VI:
       return {
         ...en,
         ...vi,
