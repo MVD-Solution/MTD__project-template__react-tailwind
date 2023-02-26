@@ -1,22 +1,11 @@
 import { IntlProvider } from 'react-intl';
-import { useStates, useActions } from './store/model/intl';
-import { useEffect } from 'react';
+import { useStates } from './store/model/intl';
 
-const ConnectedIntlProvider = ({
-  children,
-  locale,
-}: {
+type ConnectedIntlProviderTypes = {
   children: JSX.Element;
-  locale: string;
-}) => {
+};
+const ConnectedIntlProvider = ({ children }: ConnectedIntlProviderTypes) => {
   const { language, translations } = useStates();
-  const { saveLang } = useActions();
-
-  useEffect(() => {
-    if (locale !== language) {
-      saveLang(locale);
-    }
-  }, []);
 
   return (
     <IntlProvider locale={language} messages={translations}>

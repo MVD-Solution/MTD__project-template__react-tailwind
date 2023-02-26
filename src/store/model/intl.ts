@@ -1,29 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { useDispatch, useSelector } from 'react-redux';
-import en from '../../locale/en';
-import vi from '../../locale/vi';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LANG_KEY } from '../../constants/locale';
-import { RootState } from '../index.type';
+import { getMessages } from '../../locale/messages';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 
-const defaultLanguageKey = LANG_KEY.EN;
+type PayloadTypes = {
+  lang: string;
+};
 
 export const intlSlice = createSlice({
   name: 'intl',
   initialState: {
-    languageKey: defaultLanguageKey,
-    translations: defaultLanguageKey === LANG_KEY.EN ? en : vi,
+    languageKey: LANG_KEY.EN,
+    translations: getMessages(LANG_KEY.EN),
   },
   reducers: {
-    saveLang: (state, action) => {
+    saveLang: (state, action: PayloadAction<PayloadTypes>) => {
       const lang = action.payload.lang;
       state.languageKey = lang;
-      state.translations = lang === LANG_KEY.EN ? en : vi;
+      state.translations = getMessages(lang);
     },
     toggleLang: (state) => {
       const lang =
         state.languageKey === LANG_KEY.EN ? LANG_KEY.VI : LANG_KEY.EN;
       state.languageKey = lang;
-      state.translations = lang === LANG_KEY.EN ? en : vi;
+      state.translations = getMessages(lang);
     },
   },
 });
@@ -32,7 +32,7 @@ const { saveLang: saveLangAction, toggleLang: toggleLangAction } =
   intlSlice.actions;
 
 export const useActions = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const saveLang = (payload: string) => {
     dispatch(saveLangAction({ lang: payload }));
   };
@@ -43,9 +43,7 @@ export const useActions = () => {
 };
 
 export const useStates = () => {
-  const language = useSelector((state: RootState) => state.intl.languageKey);
-  const translations = useSelector(
-    (state: RootState) => state.intl.translations,
-  );
+  const language = useAppSelector((state) => state.intl.languageKey);
+  const translations = useAppSelector((state) => state.intl.translations);
   return { language, translations };
 };

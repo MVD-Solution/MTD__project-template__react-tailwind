@@ -1,4 +1,4 @@
-export default {
+const en = {
   drop_down_menu_label: 'Category',
   sort_by_label: 'Sort by',
   sort_by_expertise: 'Expertise',
@@ -6,3 +6,5 @@ export default {
   question_button_hide_answer: 'Hide answer',
   greeting: '<Link>Seee yah</Link>',
 };
+
+export default en;
