@@ -1,11 +1,9 @@
-import React from 'react';
 import Header from './../../components/Header';
 import DropdownMenu from '../../components/DropdownMenu';
 import SortBy from '../../components/SortBy';
 import Questions from '../../components/Questions';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Arr } from './../../assets/resource/arrow/down-arrow.svg';
 
 const index = () => {
   return (
