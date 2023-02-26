@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { useDispatch, useSelector } from 'react-redux';
 import { LANG_KEY } from '../../constants/locale';
-import { RootState } from '../index.type';
 import { getMessages } from '../../locale/messages';
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux';
 
 type PayloadTypes = {
   lang: string;
@@ -33,7 +32,7 @@ const { saveLang: saveLangAction, toggleLang: toggleLangAction } =
   intlSlice.actions;
 
 export const useActions = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const saveLang = (payload: string) => {
     dispatch(saveLangAction({ lang: payload }));
   };
@@ -44,9 +43,7 @@ export const useActions = () => {
 };
 
 export const useStates = () => {
-  const language = useSelector((state: RootState) => state.intl.languageKey);
-  const translations = useSelector(
-    (state: RootState) => state.intl.translations
-  );
+  const language = useAppSelector((state) => state.intl.languageKey);
+  const translations = useAppSelector((state) => state.intl.translations);
   return { language, translations };
 };
