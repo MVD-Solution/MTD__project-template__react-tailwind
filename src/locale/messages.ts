@@ -6,12 +6,12 @@ const getMessages = (locale: string) => {
   switch (locale) {
     case LANG_KEY.EN:
       return {
-        ...en,
+        ...en
       };
     case LANG_KEY.VI:
       return {
         ...en,
-        ...vi,
+        ...vi
       };
     default:
       return { ...en };

@@ -1,20 +1,18 @@
 import React from 'react';
 import Question from './../Question';
-import question from './../../a/js_2_q.md';
-import answer from './../../a/js_2_a.md';
 const listQuestion = [
   {
     question: 'aaa',
     answer: 'bbb',
     difficulty: 'hard',
-    categoryID: 'javascript',
+    categoryID: 'javascript'
   },
   {
     question: 'aaa',
     answer: 'bbb',
     difficulty: 'hard',
-    categoryID: 'css',
-  },
+    categoryID: 'css'
+  }
 ];
 const Questions = () => {
   return (

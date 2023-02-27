@@ -13,7 +13,7 @@ export const CATEGORY = {
   JAVASCRIPT: 'javascript',
   REACT: 'react',
   NODE: 'node',
-  SECURITY: 'security',
+  SECURITY: 'security'
 };
 
 export const listCategory = [
@@ -23,7 +23,7 @@ export const listCategory = [
   { id: CATEGORY.JAVASCRIPT, text: 'JavaScript', icon: Js },
   { id: CATEGORY.REACT, text: 'React', icon: ReactSvg },
   { id: CATEGORY.NODE, text: 'Node', icon: Node },
-  { id: CATEGORY.SECURITY, text: 'Security', icon: Security },
+  { id: CATEGORY.SECURITY, text: 'Security', icon: Security }
 ];
 export const categoryTable = {
   [CATEGORY.ALL]: 'All',
@@ -32,7 +32,7 @@ export const categoryTable = {
   [CATEGORY.JAVASCRIPT]: 'JavaScript',
   [CATEGORY.REACT]: 'React',
   [CATEGORY.NODE]: 'Node',
-  [CATEGORY.SECURITY]: 'Security',
+  [CATEGORY.SECURITY]: 'Security'
 };
 export const categoryColor = {
   [CATEGORY.ALL]: '',
@@ -41,5 +41,5 @@ export const categoryColor = {
   [CATEGORY.JAVASCRIPT]: 'border-pink-700',
   [CATEGORY.REACT]: 'border-red-700',
   [CATEGORY.NODE]: 'border-yellow-700',
-  [CATEGORY.SECURITY]: 'border-purple-700',
+  [CATEGORY.SECURITY]: 'border-purple-700'
 };

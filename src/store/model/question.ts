@@ -1,23 +1,17 @@
-import { createReducer, createAction, Action } from '@reduxjs/toolkit';
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { createReducer, Action } from '@reduxjs/toolkit';
+import { call, put } from 'redux-saga/effects';
 import { Question } from './../../types/Question';
-import {
-  createModuleAction,
-  createSagaHandler,
-} from '././../../utils/reduxTools';
+import { createModuleAction, createSagaHandler } from '././../../utils/reduxTools';
 
 import { fetchQuestions } from '../../services/questions';
 
 ///
 const moduleName = 'question';
-export const fetchQuestionsAction = createModuleAction<Question[]>(
-  moduleName,
-  'fetchQuestion',
-);
+export const fetchQuestionsAction = createModuleAction<Question[]>(moduleName, 'fetchQuestion');
 ///init state
 
 const initialState: { questions: Question[] } = {
-  questions: [],
+  questions: []
 };
 
 // ///reducer

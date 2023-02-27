@@ -4,16 +4,13 @@ import * as intl from './model/intl';
 
 const sagaMiddleWare = createSagaMiddleWare();
 const reducer = combineReducers({
-  intl: intl.intlSlice.reducer,
+  intl: intl.intlSlice.reducer
 });
 
 export const store = configureStore({
   reducer,
   devTools: true,
-  middleware: (getDefaultMiddleware) => [
-    ...getDefaultMiddleware({ thunk: false }),
-    sagaMiddleWare,
-  ],
+  middleware: (getDefaultMiddleware) => [...getDefaultMiddleware({ thunk: false }), sagaMiddleWare]
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -4,7 +4,8 @@ import { useStates } from './store/model/intl';
 type ConnectedIntlProviderTypes = {
   children: JSX.Element;
 };
-const ConnectedIntlProvider = ({ children }: ConnectedIntlProviderTypes) => {
+
+function ConnectedIntlProvider({ children }: ConnectedIntlProviderTypes) {
   const { language, translations } = useStates();
 
   return (
@@ -12,6 +13,6 @@ const ConnectedIntlProvider = ({ children }: ConnectedIntlProviderTypes) => {
       {children}
     </IntlProvider>
   );
-};
+}
 
 export default ConnectedIntlProvider;
