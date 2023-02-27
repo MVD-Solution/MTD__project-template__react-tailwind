@@ -8,7 +8,9 @@ function App() {
   return (
     <Provider store={store}>
       <ConnectedIntlProvider>
-        <Router />
+        <div className="min-h-screen dark:bg-gray-900">
+          <Router />
+        </div>
       </ConnectedIntlProvider>
     </Provider>
   );
