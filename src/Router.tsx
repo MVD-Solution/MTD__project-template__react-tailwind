@@ -1,16 +1,17 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
 import { ROUTES } from './constants';
-
 import Home from './pages/Home';
 
-const RouterComponent = () => {
-  return (
-    <Router>
+const Router = () => (
+  <BrowserRouter>
+    <Header />
+    <div className="mt-4 mx-5">
       <Routes>
-        <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.HOME} element={<Home />}></Route>
+        <Route path="*" element={<div>404</div>}></Route>
       </Routes>
-    </Router>
-  );
-};
-
-export default RouterComponent;
+    </div>
+  </BrowserRouter>
+);
+export default Router;

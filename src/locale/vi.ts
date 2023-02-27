@@ -1,8 +1,11 @@
 const vi = {
-  drop_down_menu_label: 'Chuyên mục',
-  sort_by_label: 'Sắp xếp',
-  sort_by_expertise: 'Độ khó',
-  question_button_show_answer: 'Hiện kết quả',
-  question_button_hide_answer: 'Ẩn kết quả'
+  home: 'Trang chủ',
+  category: 'Danh mục',
+  contact: 'Liên hệ',
+  about_us: 'Về chúng tôi',
+  switch_language: 'Đổi ngôn ngữ',
+  create_post: 'Đăng',
+  home_primary_text: 'Cùng nhau, ta viết nên tương lai'
 };
+
 export default vi;
