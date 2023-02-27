@@ -1,6 +1,6 @@
 import en from './en';
 import vi from './vi';
-import { LANG_KEY } from './../constants/locale';
+import { LANG_KEY } from './../constants';
 
 const getMessages = (locale: string) => {
   switch (locale) {
