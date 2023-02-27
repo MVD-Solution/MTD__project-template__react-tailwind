@@ -12,7 +12,7 @@ const SortBy = () => {
           <p className=" bg-blue-400 text-white px-5 py-2 text-center">
             {intl.formatMessage({
               id: 'sort_by_label',
-              defaultMessage: 'Error',
+              defaultMessage: 'Error'
             })}
           </p>
           <button
@@ -24,14 +24,10 @@ const SortBy = () => {
             <span className=" text-gray-500 group-hover:text-white ">
               {intl.formatMessage({
                 id: 'sort_by_expertise',
-                defaultMessage: 'Error',
+                defaultMessage: 'Error'
               })}
             </span>
-            {arrow ? (
-              <ArrowDownFull className="rotate-180  " />
-            ) : (
-              <ArrowDownFull />
-            )}
+            {arrow ? <ArrowDownFull className="rotate-180  " /> : <ArrowDownFull />}
           </button>
         </div>
       </div>

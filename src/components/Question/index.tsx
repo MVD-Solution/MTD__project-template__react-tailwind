@@ -9,7 +9,7 @@ import { categoryColor } from '../../constants/category';
 
 //highligh code and backend stuff
 
-const Component = ({ question, ...rest }: { question: Question }) => {
+const Component = ({ question }: { question: Question }) => {
   const [showAnswer, setShowAnswer] = React.useState<boolean>(false);
 
   return (
@@ -19,9 +19,9 @@ const Component = ({ question, ...rest }: { question: Question }) => {
           overrides: {
             SyntaxHighlighter: {
               component: SyntaxHighlighter,
-              props: { style: docco },
-            },
-          },
+              props: { style: docco }
+            }
+          }
         }}
       >
         {question.question}
@@ -33,9 +33,9 @@ const Component = ({ question, ...rest }: { question: Question }) => {
             overrides: {
               SyntaxHighlighter: {
                 component: SyntaxHighlighter,
-                props: { style: docco },
-              },
-            },
+                props: { style: docco }
+              }
+            }
           }}
         >
           {question.answer}

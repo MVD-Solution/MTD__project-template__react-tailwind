@@ -5,6 +5,6 @@ const questionAxiosInstance = axios.create();
 export const fetchQuestions = () => {
   return questionAxiosInstance.request<Promise<Question>>({
     url: 'localhost:3000/api/v1/questions',
-    method: 'get',
+    method: 'get'
   });
 };

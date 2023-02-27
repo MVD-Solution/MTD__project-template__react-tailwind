@@ -1,10 +1,6 @@
 import React from 'react';
 import { ReactComponent as ArrowDown } from './../../assets/resource/arrow/down-arrow.svg';
-import {
-  CATEGORY,
-  listCategory,
-  categoryTable,
-} from '../../constants/category';
+import { CATEGORY, listCategory, categoryTable } from '../../constants/category';
 import { useIntl } from 'react-intl';
 
 const DropdownMenu = () => {
@@ -17,7 +13,7 @@ const DropdownMenu = () => {
           <p className=" bg-blue-400 text-white px-5 py-2 ">
             {intl.formatMessage({
               id: 'drop_down_menu_label',
-              defaultMessage: 'Error',
+              defaultMessage: 'Error'
             })}
           </p>
           <button className="flex justify-center items-center gap-x-3 hover:bg-gray-500  py-2 px-5 group relative after:content-[''] after:absolute after:w-28 after:bg-red-500 after:h-10 after:top-5 after:left-0 after:bg-transparent">

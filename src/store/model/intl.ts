@@ -11,7 +11,7 @@ export const intlSlice = createSlice({
   name: 'intl',
   initialState: {
     languageKey: LANG_KEY.EN,
-    translations: getMessages(LANG_KEY.EN),
+    translations: getMessages(LANG_KEY.EN)
   },
   reducers: {
     saveLang: (state, action: PayloadAction<PayloadTypes>) => {
@@ -20,16 +20,14 @@ export const intlSlice = createSlice({
       state.translations = getMessages(lang);
     },
     toggleLang: (state) => {
-      const lang =
-        state.languageKey === LANG_KEY.EN ? LANG_KEY.VI : LANG_KEY.EN;
+      const lang = state.languageKey === LANG_KEY.EN ? LANG_KEY.VI : LANG_KEY.EN;
       state.languageKey = lang;
       state.translations = getMessages(lang);
-    },
-  },
+    }
+  }
 });
 
-const { saveLang: saveLangAction, toggleLang: toggleLangAction } =
-  intlSlice.actions;
+const { saveLang: saveLangAction, toggleLang: toggleLangAction } = intlSlice.actions;
 
 export const useActions = () => {
   const dispatch = useAppDispatch();

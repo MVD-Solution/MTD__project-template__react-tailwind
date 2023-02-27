@@ -20,7 +20,7 @@ const index = () => {
           description="Greeting to welcome the user to the app"
           defaultMessage="Hello, <Link>Eric</Link>"
           values={{
-            Link: (chunks) => <Link to={'/aaaaaa'}>{chunks}</Link>,
+            Link: (chunks) => <Link to={'/aaaaaa'}>{chunks}</Link>
           }}
         />
       </div>

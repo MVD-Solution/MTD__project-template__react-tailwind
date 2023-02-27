@@ -8,7 +8,7 @@ const index = () => {
         width: '100%',
         height: '550px',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        backgroundRepeat: 'no-repeat'
       }}
     />
   );

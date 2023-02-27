@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { ReactComponent as ArrowDown } from './../../assets/resource/arrow/down-arrow.svg';
 const Button = ({
   showAnswer,
-  setShowAnswer,
+  setShowAnswer
 }: {
   showAnswer: boolean;
   setShowAnswer: (callback: (prevState: boolean) => boolean) => void;
@@ -23,11 +23,11 @@ const Button = ({
         {showAnswer
           ? intl.formatMessage({
               id: 'question_button_hide_answer',
-              defaultMessage: 'Error',
+              defaultMessage: 'Error'
             })
           : intl.formatMessage({
               id: 'question_button_show_answer',
-              defaultMessage: 'Error',
+              defaultMessage: 'Error'
             })}
       </span>
       {arrow ? (
