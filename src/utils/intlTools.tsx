@@ -1,11 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../types';
+import { useAppSelector } from '@hooks/useRedux';
 
 export const useTranslations = (keys: Array<string>) => {
-  const dictionary: any = useSelector(
-    (state: RootState) => state.intl.translations
-  );
+  const dictionary: any = useAppSelector((state) => state.intl.translations);
   const result: Array<string> = [];
   if (keys && Array.isArray(keys)) {
     let content = '';
@@ -33,9 +30,7 @@ export const useTranslations = (keys: Array<string>) => {
 };
 
 export const useTranslation = (key: string, args: any) => {
-  const dictionary: any = useSelector(
-    (state: RootState) => state.intl.translations
-  );
+  const dictionary: any = useAppSelector((state) => state.intl.translations);
   if (dictionary[key]) {
     const result = dictionary[key]
       .split(/{\s*([a-zA-Z0-9_]+)\s*}/)
@@ -53,9 +48,7 @@ export const useTranslation = (key: string, args: any) => {
   }
 };
 
-export const FormattedMessage = React.memo(
-  ({ id, args }: { id: string; args: any }) => {
-    const content = useTranslation(id, args);
-    return <>{content}</>;
-  }
-);
+export const FormattedMessage = React.memo(({ id, args }: { id: string; args: any }) => {
+  const content = useTranslation(id, args);
+  return <>{content}</>;
+});

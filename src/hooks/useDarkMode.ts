@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ThemeTypes } from '../models/common';
+import { ThemeTypes } from '@custom-types/index';
 
 const useDarkMode = () => {
   const [theme, setTheme] = useState<ThemeTypes>(

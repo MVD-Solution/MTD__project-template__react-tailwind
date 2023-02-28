@@ -1,6 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
-import { ROUTES } from './../constants';
+import { ROUTES } from '@constants/index';
 
 const Header = () => {
   return (

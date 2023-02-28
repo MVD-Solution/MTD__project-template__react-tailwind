@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import { ROUTES } from './constants';
-import Home from './pages/Home';
+import { ROUTES } from '@constants/index';
+import Header from '@components/Header';
+import Home from '@pages/Home';
 
 const Router = () => (
   <BrowserRouter>
