@@ -5,6 +5,7 @@ import Header from '@components/Header';
 import Home from '@pages/Home';
 import Chat from '@pages/Chat';
 import { useStates } from '@store/models/theme';
+import Post from '@pages/Post';
 
 const Router = () => {
   const { theme } = useStates();
@@ -20,6 +21,7 @@ const Router = () => {
         <div className="mt-4 mx-5">
           <Routes>
             <Route path={ROUTES.HOME} element={<Home />} />
+            <Route path={ROUTES.POST} element={<Post />} />
             <Route path={ROUTES.CHAT} element={<Chat />} />
             <Route path="*" element={<div>404</div>} />
           </Routes>
