@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import createSagaMiddleWare from 'redux-saga';
-import * as intl from './model/intl';
+import * as intl from '@store/model/intl';
 
 const sagaMiddleWare = createSagaMiddleWare();
 const reducer = combineReducers({

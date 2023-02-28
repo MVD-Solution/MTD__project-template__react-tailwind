@@ -1,7 +1,7 @@
 import { FormattedMessage } from 'react-intl';
-import useDarkMode from '../hooks/useDarkMode';
-import { ThemeTypes } from '../models/common';
-import { useActions } from '../store/model/intl';
+import useDarkMode from '@hooks/useDarkMode';
+import { ThemeTypes } from '@custom-types/index';
+import { useActions } from '@store/model/intl';
 
 const Home = () => {
   const { toggleLang } = useActions();

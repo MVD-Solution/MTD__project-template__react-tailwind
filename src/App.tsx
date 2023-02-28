@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store } from './store';
-import Router from './Router';
-import ConnectedIntlProvider from './ConnectedIntl';
+import { store } from '@store/index';
+import Router from '@root/Router';
+import ConnectedIntlProvider from '@root/ConnectedIntl';
 
 function App() {
   return (
