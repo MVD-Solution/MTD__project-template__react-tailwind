@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ROUTES } from '@constants/index';
 import Header from '@components/Header';
 import Home from '@pages/Home';
-import Chat from '@pages/Chat';
 import { useStates } from '@store/models/theme';
 import Post from '@pages/Post';
+import Support from '@pages/Support';
 
 const Router = () => {
   const { theme } = useStates();
@@ -22,7 +22,7 @@ const Router = () => {
           <Routes>
             <Route path={ROUTES.HOME} element={<Home />} />
             <Route path={ROUTES.POST} element={<Post />} />
-            <Route path={ROUTES.CHAT} element={<Chat />} />
+            <Route path={ROUTES.SUPPORT} element={<Support />} />
             <Route path="*" element={<div>404</div>} />
           </Routes>
         </div>

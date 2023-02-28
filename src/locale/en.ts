@@ -6,7 +6,7 @@ const en = {
   switch_language: 'Switch language',
   create_post: 'Post',
   home_primary_text: 'Together, we draw the future',
-  chat: 'Chat'
+  support: 'Support'
 };
 
 export default en;

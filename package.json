@@ -23,12 +23,24 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "lint": "eslint --fix --ignore-path .eslintignore --ext .js,.ts,.tsx,.jsx .",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "storybook dev -p 6006 -s public",
+    "build-storybook": "storybook build -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -44,6 +56,16 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^7.0.0-beta.55",
+    "@storybook/addon-essentials": "^7.0.0-beta.55",
+    "@storybook/addon-interactions": "^7.0.0-beta.55",
+    "@storybook/addon-links": "^7.0.0-beta.55",
+    "@storybook/addon-mdx-gfm": "^7.0.0-beta.55",
+    "@storybook/node-logger": "^7.0.0-beta.55",
+    "@storybook/preset-create-react-app": "^7.0.0-beta.55",
+    "@storybook/react": "^7.0.0-beta.55",
+    "@storybook/react-webpack5": "^7.0.0-beta.55",
+    "@storybook/testing-library": "^0.0.14-next.1",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.65",
     "@types/react": "^18.0.21",
@@ -51,14 +73,19 @@
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
     "autoprefixer": "^10.4.12",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-storybook": "^0.6.11",
     "eslint-plugin-unused-imports": "^2.0.0",
     "postcss": "^8.4.18",
     "prettier": "^2.8.4",
+    "prop-types": "^15.8.1",
     "react-app-alias": "^2.2.2",
+    "storybook": "^7.0.0-beta.55",
     "tailwindcss": "^3.1.8",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "webpack": "^5.75.0"
   }
 }

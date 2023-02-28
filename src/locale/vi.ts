@@ -6,7 +6,7 @@ const vi = {
   switch_language: 'Đổi ngôn ngữ',
   create_post: 'Đăng',
   home_primary_text: 'Cùng nhau, ta viết nên tương lai',
-  chat: 'Chat'
+  support: 'Hỗ trợ'
 };
 
 export default vi;
