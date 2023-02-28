@@ -4,7 +4,7 @@ import { ROUTES } from '@constants/index';
 import Header from '@components/Header';
 import Home from '@pages/Home';
 import Chat from '@pages/Chat';
-import { useStates } from '@store/models/darkMode';
+import { useStates } from '@store/models/theme';
 
 const Router = () => {
   const { theme } = useStates();
@@ -14,7 +14,7 @@ const Router = () => {
     localStorage.setItem('theme', theme);
   }, []);
   return (
-    <div className="min-h-screen dark:bg-gray-900">
+    <div className="min-h-screen dark:bg-gray-900 dark:text-white">
       <BrowserRouter>
         <Header />
         <div className="mt-4 mx-5">

@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import createSagaMiddleWare from 'redux-saga';
 import * as intl from '@store/models/intl';
-import * as theme from '@store/models/darkMode';
+import * as theme from '@store/models/theme';
 
 const sagaMiddleWare = createSagaMiddleWare();
 const reducer = combineReducers({

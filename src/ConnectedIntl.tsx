@@ -1,5 +1,5 @@
 import { IntlProvider } from 'react-intl';
-import { useStates } from '@store/model/intl';
+import { useStates } from '@store/models/intl';
 
 type ConnectedIntlProviderTypes = {
   children: JSX.Element;
