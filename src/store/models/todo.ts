@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '@hooks/useRedux';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { fetchAllTodos } from '@services/todos';
 import { createModuleAction } from '@utils/reduxTools';
-import { createReducer } from '@reduxjs/toolkit';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
 const initialState: TodoTypes[] = [
   {
@@ -15,17 +15,7 @@ const initialState: TodoTypes[] = [
 ];
 
 const fetchTodoAction = createModuleAction<TodoTypes[]>('Todo', 'fetchTodo');
-
-// export const TodoSlice = createSlice({
-//   name: 'todos',
-//   initialState: initialState,
-//   reducers: {
-//     addTodo: (state, action) => {
-//       state.push(action.payload);
-//     }
-//     fetchToDoAction.request
-//   }
-// });
+const switchTodoStateAction = createAction<number>('switchTodoStateAction');
 
 export const todoReducers = createReducer(initialState, (builder) => {
   builder.addCase(fetchTodoAction.success, (state, action) => {
@@ -34,6 +24,11 @@ export const todoReducers = createReducer(initialState, (builder) => {
   builder.addCase(fetchTodoAction.error, (state) => {
     // eslint-disable-next-line unused-imports/no-unused-vars
     return state;
+  });
+  builder.addCase(switchTodoStateAction, (state, action) => {
+    const todo = { ...state[action.payload], completed: !state[action.payload].completed };
+    const newState = [...state, (state[action.payload] = todo)];
+    state = newState;
   });
 });
 
@@ -58,5 +53,6 @@ export const useStates = () => {
 export const useActions = () => {
   const dispatch = useAppDispatch();
   const fetchTodos = () => dispatch(fetchTodoAction.request());
-  return { fetchTodos };
+  const switchTodoState = (index: number) => dispatch(switchTodoStateAction(index));
+  return { fetchTodos, switchTodoState };
 };

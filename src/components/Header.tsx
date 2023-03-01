@@ -11,8 +11,8 @@ const Header = () => {
       <Link to={ROUTES.HOME}>
         <FormattedMessage id="home" />
       </Link>
-      <Link to={ROUTES.POST}>
-        <FormattedMessage id="create_post" />
+      <Link to={ROUTES.SAMPLE}>
+        <FormattedMessage id="sample" />
       </Link>
     </header>
   );

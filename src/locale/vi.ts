@@ -6,7 +6,8 @@ const vi = {
   switch_language: 'Đổi ngôn ngữ',
   create_post: 'Đăng',
   home_primary_text: 'Cùng nhau, ta viết nên tương lai',
-  support: 'Hỗ trợ'
+  support: 'Hỗ trợ',
+  sample: 'Trang mẫu'
 };
 
 export default vi;

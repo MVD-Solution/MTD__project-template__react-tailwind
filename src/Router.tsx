@@ -4,8 +4,8 @@ import { ROUTES } from '@constants/index';
 import Header from '@components/Header';
 import Home from '@pages/Home';
 import { useStates } from '@store/models/theme';
-import Post from '@pages/Post';
 import Support from '@pages/Support';
+import Sample from '@pages/Sample';
 
 const Router = () => {
   const { theme } = useStates();
@@ -21,7 +21,7 @@ const Router = () => {
         <div className="mt-4 mx-5">
           <Routes>
             <Route path={ROUTES.HOME} element={<Home />} />
-            <Route path={ROUTES.POST} element={<Post />} />
+            <Route path={ROUTES.SAMPLE} element={<Sample />} />
             <Route path={ROUTES.SUPPORT} element={<Support />} />
             <Route path="*" element={<div>404</div>} />
           </Routes>

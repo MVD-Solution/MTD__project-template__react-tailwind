@@ -6,7 +6,8 @@ const en = {
   switch_language: 'Switch language',
   create_post: 'Post',
   home_primary_text: 'Together, we draw the future',
-  support: 'Support'
+  support: 'Support',
+  sample: 'Sample'
 };
 
 export default en;

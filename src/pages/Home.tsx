@@ -3,7 +3,6 @@ import { useStates as useDarkModeStates } from '@store/models/theme';
 import { useActions as useDarkModeActions } from '@store/models/theme';
 import { useActions as useIntlActions } from '@store/models/intl';
 import Button from '@components/Button';
-import Checkbox from '@components/Checkbox/Checkbox';
 import { useActions as useTodoActions, useStates as useTodoStates } from '@store/models/todo';
 import { useEffect } from 'react';
 
@@ -34,27 +33,6 @@ const Home = () => {
         <div className="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg font-bold text-xl text-center">
           What's our template handles for you
         </div>
-
-        {todos.map((todo) => {
-          return (
-            <div
-              key={todo.id}
-              className="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg flex gap-2 items-center"
-            >
-              <Checkbox
-                checked={todo.completed}
-                variant="success"
-                id={todo.id}
-                onChange={() => {
-                  console.log(todo.id);
-                }}
-              />
-              <label htmlFor={todo.id}>
-                {todo.id}. {todo.title}
-              </label>
-            </div>
-          );
-        })}
       </div>
     </div>
   );
