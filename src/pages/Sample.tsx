@@ -1,10 +1,15 @@
-import Checkbox from '@components/Checkbox/Checkbox';
+import TodoCard from '@components/TodoCard';
+import { TodoTypes } from '@custom-types/todo';
 import { useActions as useTodoActions, useStates as useTodoStates } from '@store/models/todo';
 import { useEffect } from 'react';
 
 const Sample = () => {
   const { todos } = useTodoStates();
-  const { fetchTodos, switchTodoState } = useTodoActions();
+  const { fetchTodos, updateTodo } = useTodoActions();
+  const handleOnSwitch = (todo: TodoTypes) => {
+    const newTodo = { ...todo, completed: !todo.completed };
+    updateTodo(newTodo);
+  };
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -22,22 +27,14 @@ const Sample = () => {
           Your day list
         </div>
 
-        {todos.map((todo, index) => {
+        {todos.map((todo) => {
           return (
-            <div
-              key={todo.id}
-              className="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg flex gap-2 items-center"
-            >
-              <Checkbox
-                checked={todo.completed}
-                variant="success"
-                id={todo.id}
-                onChange={() => {
-                  switchTodoState(index);
-                }}
-              />
-              <label htmlFor={todo.id}>{todo.title}</label>
-            </div>
+            <TodoCard
+              completed={todo.completed}
+              id={todo.id}
+              onSwitch={() => handleOnSwitch(todo)}
+              title={todo.title}
+            />
           );
         })}
       </div>

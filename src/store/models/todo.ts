@@ -1,21 +1,14 @@
 import { TodoTypes } from '@custom-types/todo';
 import { useAppDispatch, useAppSelector } from '@hooks/useRedux';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { fetchAllTodos } from '@services/todos';
+import { fetchAllTodos, updateTodo } from '@services/todos';
 import { createModuleAction } from '@utils/reduxTools';
-import { createAction, createReducer } from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 
-const initialState: TodoTypes[] = [
-  {
-    id: '',
-    userId: '',
-    title: '',
-    completed: false
-  }
-];
+const initialState: TodoTypes[] = [];
 
 const fetchTodoAction = createModuleAction<TodoTypes[]>('Todo', 'fetchTodo');
-const switchTodoStateAction = createAction<number>('switchTodoStateAction');
+const updateTodoAction = createModuleAction<TodoTypes>('Todo', 'updateTodo');
 
 export const todoReducers = createReducer(initialState, (builder) => {
   builder.addCase(fetchTodoAction.success, (state, action) => {
@@ -25,10 +18,18 @@ export const todoReducers = createReducer(initialState, (builder) => {
     // eslint-disable-next-line unused-imports/no-unused-vars
     return state;
   });
-  builder.addCase(switchTodoStateAction, (state, action) => {
-    const todo = { ...state[action.payload], completed: !state[action.payload].completed };
-    const newState = [...state, (state[action.payload] = todo)];
-    state = newState;
+  builder.addCase(updateTodoAction.success, (state, action) => {
+    const newTodos = state.map((item) => {
+      if (action.payload && action.payload.id === item.id) {
+        return action.payload;
+      }
+      return item;
+    });
+    return newTodos;
+  });
+  builder.addCase(updateTodoAction.error, (state) => {
+    // eslint-disable-next-line unused-imports/no-unused-vars
+    return state;
   });
 });
 
@@ -41,8 +42,18 @@ const fetchToDoSagaHandler = function* () {
   }
 };
 
+const updateTodoSagaHandler = function* ({ type, payload }: { type: string; payload: TodoTypes }) {
+  try {
+    const data: TodoTypes = yield call(() => updateTodo(payload));
+    yield put(updateTodoAction.success(data));
+  } catch {
+    yield put(updateTodoAction.error());
+  }
+};
+
 export const watcherSaga = function* () {
   yield takeLatest(fetchTodoAction.request.type, fetchToDoSagaHandler);
+  yield takeLatest(updateTodoAction.request.type, updateTodoSagaHandler);
 };
 
 export const useStates = () => {
@@ -53,6 +64,7 @@ export const useStates = () => {
 export const useActions = () => {
   const dispatch = useAppDispatch();
   const fetchTodos = () => dispatch(fetchTodoAction.request());
-  const switchTodoState = (index: number) => dispatch(switchTodoStateAction(index));
-  return { fetchTodos, switchTodoState };
+  const updateTodo = (data: TodoTypes) => dispatch(updateTodoAction.request(data));
+
+  return { fetchTodos, updateTodo };
 };
