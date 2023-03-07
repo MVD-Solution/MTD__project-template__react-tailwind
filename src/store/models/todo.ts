@@ -7,8 +7,11 @@ import { createReducer } from '@reduxjs/toolkit';
 
 const initialState: TodoTypes[] = [];
 
-const fetchTodoAction = createModuleAction<TodoTypes[]>('Todo', 'fetchTodo');
-const updateTodoAction = createModuleAction<TodoTypes>('Todo', 'updateTodo');
+const fetchTodoAction = createModuleAction<TodoTypes[], TodoTypes[], TodoTypes[]>(
+  'Todo',
+  'fetchTodo'
+);
+const updateTodoAction = createModuleAction<TodoTypes, TodoTypes, TodoTypes>('Todo', 'updateTodo');
 
 export const todoReducers = createReducer(initialState, (builder) => {
   builder.addCase(fetchTodoAction.success, (state, action) => {
