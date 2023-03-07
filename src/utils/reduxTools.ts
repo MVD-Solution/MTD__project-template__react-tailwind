@@ -1,10 +1,10 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const createModuleAction = <T>(moduleName: string, actionName: string) => {
+export const createModuleAction = <T, Q, K>(moduleName: string, actionName: string) => {
   return {
     request: createAction<T | undefined>(`${moduleName}:${actionName}:REQUEST`),
-    error: createAction<T | undefined>(`${moduleName}:${actionName}:ERROR`),
-    success: createAction<T | undefined>(`${moduleName}:${actionName}:SUCCESS`)
+    error: createAction<Q | undefined>(`${moduleName}:${actionName}:ERROR`),
+    success: createAction<K | undefined>(`${moduleName}:${actionName}:SUCCESS`)
   };
 };
 
